@@ -1,7 +1,10 @@
-from levelGenerator import LevelGenerator
+from skeletonGenerator import SkeletonGenerator
+from grassDecorator import GrassDecorator
 import numpy
 
-matrix = LevelGenerator().GenerateMatrix()
+skeleton = SkeletonGenerator()
+matrix = skeleton.matrix
+matrix = GrassDecorator().updateCells(matrix,[1,21,10,12,13,14,23,24],skeleton.createdPath,skeleton.ground, 3)
 
 with open("./src/JS/matrixInfo.js", 'w') as F:
     F.write("let matrix = [" )

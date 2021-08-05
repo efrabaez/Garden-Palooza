@@ -2,20 +2,48 @@ import random
 from copy import deepcopy
 from collections import deque
 
-class LevelGenerator(): 
+class SkeletonGenerator: 
     def __init__(self):
         self.manhattanDistance = lambda pointA, pointB: abs((pointA[0] - pointB[0])) + abs((pointA[1] - pointB[1]))
         self.between = lambda point, matrix: 0 <= point[0] < len(matrix) and 0 <= point[1] < len(matrix[0])
+        self.matrix = []
+        self.createdPath = []
+        self.ground = []
+        self.SkeletonGenerator()
+        self.matrix = self.increaseSize(self.matrix,len(self.matrix),len(self.matrix[0]))
 
-    def GenerateMatrix(self):
-        rows = 40
-        cols = 80
+    def increaseSize(self,matrix,rows,cols):
+        newMatrix = [[0 for x in range(cols * 3)] for y in range(rows * 3)]
+        newRow = 0
+        newCol = 0
+        for row in matrix:
+            for col in row:
+                newMatrix[newRow][newCol], newMatrix[newRow][newCol + 1]  , newMatrix[newRow][newCol + 2] = col , col , col
+                newMatrix[newRow + 1][newCol], newMatrix[newRow + 1][newCol + 1]  , newMatrix[newRow + 1][newCol + 2] = col , col , col
+                newMatrix[newRow + 2][newCol], newMatrix[newRow + 2][newCol + 1]  , newMatrix[newRow + 2][newCol + 2] = col , col , col
+                if col == 3:
+                    self.createdPath += [[newRow,newCol],[newRow,newCol + 1],[newRow,newCol + 2]]
+                    self.createdPath += [[newRow + 1,newCol],[newRow + 1,newCol + 1],[newRow + 1,newCol + 2]]
+                    self.createdPath += [[newRow + 2,newCol],[newRow + 2,newCol + 1],[newRow + 2,newCol + 2]]
+                else:
+                    self.ground += [[newRow,newCol],[newRow,newCol + 1],[newRow,newCol + 2]]
+                    self.ground += [[newRow + 1,newCol],[newRow + 1,newCol + 1],[newRow + 1,newCol + 2]]
+                    self.ground += [[newRow + 2,newCol],[newRow + 2,newCol + 1],[newRow + 2,newCol + 2]]
+
+                newCol += 3
+            newRow += 3
+            newCol = 0
+        return newMatrix
+
+    def SkeletonGenerator(self):
+        rows = 13
+        cols = 17
         matrix = [[3 for x in range(cols)] for y in range(rows)]
         
         start = [rows - 1,random.randint(0,cols -1)]
         end = [0,random.randint(0,cols - 1)]
         self.GenerateLevel(matrix,deepcopy(start), deepcopy(end))
-        return matrix
+        self.matrix = matrix
 
     def GenerateLevel(self,matrix,wanderer,seeker):
         createdPath = []

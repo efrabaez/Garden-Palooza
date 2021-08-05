@@ -1,23 +1,38 @@
-# Garden Palooza
+# Garden Palooza API
 
-A multiplayer gardening game. 
+API of Garden Palloza game
+ 
 
-# Installation
+## Installation
 
-WIP
+Make sure you have python3 and pip installed
 
-# Usage
 
-WIP
+Create and activate virtual environment using virtualenv
+```bash
+$ python3 -m venv python3-virtualenv
+$ source python3-virtualenv/bin/activate
+```
 
-# Contributing
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dependencies
 
-This is still a heavy work in progress. This will be updated as time goes on!
+```bash
+pip install -r requirements.txt
+```
 
-# Tech Stack
-- Frontend: React.js
-- GAME Engine: Phaser
-- Data Base: Posgres SQL
-- Backend: Flask
-- Micro Service: FLask & Socket.io
-- Hosting: Docker & AWS
+## Usage
+
+
+Create a .env file using the example.env template
+
+
+Start flask development server
+```bash
+$ export FLASK_ENV=development
+$ flask run
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.

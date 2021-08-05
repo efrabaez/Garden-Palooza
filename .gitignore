@@ -1,1 +1,5 @@
-*sublime*
+.venv
+__pycache__
+*.pyc
+.env
+/python3-virtualenv

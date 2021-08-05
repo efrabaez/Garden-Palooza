@@ -81,22 +81,26 @@ class GrassDecorator:
                 
         if cellInfo == leftUpperCorner:
             if row + 1 < len(matrix) and column + 1 < len(matrix[0]) and matrix[row +1][column - 1] == 3:
-                tempMatrix[row + 1][column + 1] = 22
+                if matrix[row][column + 1] == 3 and matrix[row + 1][column + 1] == 3:
+                    tempMatrix[row + 1][column + 1] = 22
            
 
         if cellInfo == rightUpperCorner:
             if row + 1 < len(matrix) and 0 <= column - 1 and matrix[row +1][column - 1] == 3:
-                tempMatrix[row + 1][column - 1 ] = 20
+                if matrix[row][column - 1] == 3 and matrix[row + 1][column - 1] == 3:
+                    tempMatrix[row + 1][column - 1 ] = 20
         
 
         if cellInfo == rightLowerCorner:
             if 0 <= row - 1 < len(matrix) and 0 <= column - 1 and matrix[row - 1][column - 1] == 3:
-                tempMatrix[row - 1][column - 1] = 0
+                if matrix[row][column - 1] == 3 and matrix[row - 1][column - 1] == 3:
+                    tempMatrix[row - 1][column - 1] = 0
             
 
         if cellInfo == leftLowerCorner:
             if 0 <= row - 1 < len(matrix) and column + 1 < len(matrix[0]) and matrix[row - 1][column - 1] == 3:
-                tempMatrix[row - 1][column + 1] = 2
+                if matrix[row - 1][column + 1] == 3 and matrix[ row ][column + 1] == 3:
+                    tempMatrix[row - 1][column + 1] = 2
             
 
 

@@ -3,6 +3,7 @@ from grassDecorator import GrassDecorator
 from riverSkeletonGenerator import RiverSkeletonGenerator
 from riverDecorator import RiverDecorator
 from groundDecorator import GroundDecorator
+from waterExtraDecorator import WaterExtraDecorator
 
 GROUND_SPRITE_INDEX = 2363
 GRASS_SPRITE_INDEX = 2420
@@ -19,6 +20,8 @@ WATER_SPRITE_MAP = [2715, 2833, 2773, 2775, 2834, 2832, 2716, 2714,2776,2777,283
 
 GROUND_SPRITE_MAP = [GROUND_SPRITE_INDEX,2483,2484,2485]
 
+WATER_EXTRA_SPRITE_MAP = [ 2896, 2897, 2898, 2899 ]
+
 
 skeleton = SkeletonGenerator(GROUND_SPRITE_INDEX, GRASS_SPRITE_INDEX)
 matrix = skeleton.matrix
@@ -27,7 +30,7 @@ skeleton = RiverSkeletonGenerator(matrix,WATER_SPRITE_INDEX, GROUND_SPRITE_INDEX
 
 if len( skeleton.waterSpot ) > 0:
     matrix = RiverDecorator().updateCells(matrix,WATER_SPRITE_INDEX,skeleton.waterSpot, GROUND_SPRITE_INDEX, WATER_SPRITE_MAP)
-
+    WaterExtraDecorator(matrix, skeleton.waterSpot, WATER_EXTRA_SPRITE_MAP)
 GroundDecorator(matrix,GROUND_SPRITE_MAP)
 
 

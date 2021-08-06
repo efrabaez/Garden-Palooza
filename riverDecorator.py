@@ -7,7 +7,7 @@ class RiverDecorator:
 
         orientationDictionary = OrientationDictionary(waterSprites)
         spriteDict = orientationDictionary.spriteDict
-        waterDict = orientationDictionary.waterDict
+        cornerDict = orientationDictionary.cornerDict
         tempMatrix = deepcopy(matrix)
 
         for spot in waterSpot:
@@ -17,10 +17,10 @@ class RiverDecorator:
             self.checkNeighbors(row, column - 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, spriteDict, False)
             self.checkNeighbors(row, column + 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, spriteDict, False)
 
-            self.checkNeighbors(row - 1, column - 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, waterDict, True)
-            self.checkNeighbors(row - 1, column + 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, waterDict, True)
-            self.checkNeighbors(row + 1, column - 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, waterDict, True)
-            self.checkNeighbors(row + 1, column + 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, waterDict, True)
+            self.checkNeighbors(row - 1, column - 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, cornerDict, True)
+            self.checkNeighbors(row - 1, column + 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, cornerDict, True)
+            self.checkNeighbors(row + 1, column - 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, cornerDict, True)
+            self.checkNeighbors(row + 1, column + 1, matrix, tempMatrix, GROUND_SPRITE_INDEX, WATER_SPRITE_INDEX, cornerDict, True)
 
         return tempMatrix
 

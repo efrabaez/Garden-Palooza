@@ -14,6 +14,7 @@ class GrassDecorator:
         spriteDict = orientationDictionary.spriteDict
         cornerDict = orientationDictionary.cornerDict
         tempMatrix = deepcopy(matrix)
+        
         for cell in createdPath:
             cellInfo = [
                 [0,0,0],
@@ -23,16 +24,13 @@ class GrassDecorator:
 
             self.fillCellInfo(cellInfo,cell,matrix,GROUND_SPRITE_INDEX)
             self.updateSprite(cellInfo,spriteDict,cell[0],cell[1],tempMatrix,GRASS_SPRITE_INDEX)
-        
-        for cell in groundList:
-            cellInfo = [
-                [0,0,0],
-                [0,1,0],
-                [0,0,0]
-            ]
-            self.fillCellInfo(cellInfo,cell,matrix,GROUND_SPRITE_INDEX)
+
             self.groundSpriteUpdate(cell,matrix,cornerDict,tempMatrix, cellInfo, GROUND_SPRITE_INDEX)
+            self.checkDiagonals(cellInfo, cell, matrix, GROUND_SPRITE_INDEX)
             
+            for info in cornerDict:
+                if cellInfo in info:
+                    tempMatrix[cell[0]][cell[1]] = info[1]
 
         return tempMatrix
 
@@ -49,6 +47,21 @@ class GrassDecorator:
 
         if 0 <= row < len(matrix) and 0 <= col - 1 < len(matrix[0]) and matrix[row][col - 1] == spriteToCheck:
             cellInfo[1][0] = 1
+
+    def checkDiagonals(self, cellInfo, cell, matrix, spriteToCheck):
+        row,col = cell
+        if 0 <= row - 1 < len(matrix) and 0 <= col - 1 < len(matrix[0]) and matrix[row - 1][col - 1] == spriteToCheck:
+            cellInfo[0][0] = 1
+                
+        if 0 <= row - 1 < len(matrix) and 0 <= col + 1 < len(matrix[0]) and matrix[row - 1][col + 1] == spriteToCheck:
+            cellInfo[0][2] = 1
+            
+        if 0 <= row + 1< len(matrix) and 0 <= col + 1 < len(matrix[0]) and matrix[row + 1][col + 1] == spriteToCheck:
+            cellInfo[2][2] = 1
+
+        if 0 <= row + 1 < len(matrix) and 0 <= col - 1 < len(matrix[0]) and matrix[row + 1][col - 1] == spriteToCheck:
+            cellInfo[2][0] = 1
+            
     
     def updateSprite(self,cellInfo,spriteDict,row,column,tempMatrix, defaultSprite):
         found = False

@@ -14,7 +14,7 @@ class MainScene extends Phaser.Scene
 
     preload ()
     {
-      this.load.image("gardenTile","assets/free.png");
+      this.load.image("gardenTile","assets/global.png");
     }
 
     create ()

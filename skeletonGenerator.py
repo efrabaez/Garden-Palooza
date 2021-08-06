@@ -3,16 +3,16 @@ from copy import deepcopy
 from collections import deque
 
 class SkeletonGenerator: 
-    def __init__(self):
+    def __init__(self, GROUND_SPRITE_INDEX, GRASS_SPRITE_INDEX):
         self.manhattanDistance = lambda pointA, pointB: abs((pointA[0] - pointB[0])) + abs((pointA[1] - pointB[1]))
         self.between = lambda point, matrix: 0 <= point[0] < len(matrix) and 0 <= point[1] < len(matrix[0])
         self.matrix = []
         self.createdPath = []
         self.ground = []
-        self.SkeletonGenerator()
-        self.matrix = self.increaseSize(self.matrix,len(self.matrix),len(self.matrix[0]))
+        self.SkeletonGenerator(GROUND_SPRITE_INDEX,GRASS_SPRITE_INDEX)
+        self.matrix = self.increaseSize(self.matrix,len(self.matrix),len(self.matrix[0]), GRASS_SPRITE_INDEX)
 
-    def increaseSize(self,matrix,rows,cols):
+    def increaseSize(self,matrix,rows,cols, GRASS_SPRITE_INDEX):
         newMatrix = [[0 for x in range(cols * 3)] for y in range(rows * 3)]
         newRow = 0
         newCol = 0
@@ -21,7 +21,7 @@ class SkeletonGenerator:
                 newMatrix[newRow][newCol], newMatrix[newRow][newCol + 1]  , newMatrix[newRow][newCol + 2] = col , col , col
                 newMatrix[newRow + 1][newCol], newMatrix[newRow + 1][newCol + 1]  , newMatrix[newRow + 1][newCol + 2] = col , col , col
                 newMatrix[newRow + 2][newCol], newMatrix[newRow + 2][newCol + 1]  , newMatrix[newRow + 2][newCol + 2] = col , col , col
-                if col == 3:
+                if col == GRASS_SPRITE_INDEX:
                     self.createdPath += [[newRow,newCol],[newRow,newCol + 1],[newRow,newCol + 2]]
                     self.createdPath += [[newRow + 1,newCol],[newRow + 1,newCol + 1],[newRow + 1,newCol + 2]]
                     self.createdPath += [[newRow + 2,newCol],[newRow + 2,newCol + 1],[newRow + 2,newCol + 2]]
@@ -35,23 +35,23 @@ class SkeletonGenerator:
             newCol = 0
         return newMatrix
 
-    def SkeletonGenerator(self):
+    def SkeletonGenerator(self,GROUND_SPRITE_INDEX,GRASS_SPRITE_INDEX):
         rows = 13
         cols = 17
-        matrix = [[3 for x in range(cols)] for y in range(rows)]
+        matrix = [[GROUND_SPRITE_INDEX for x in range(cols)] for y in range(rows)]
         
         start = [rows - 1,random.randint(0,cols -1)]
         end = [0,random.randint(0,cols - 1)]
-        self.GenerateLevel(matrix,deepcopy(start), deepcopy(end))
+        self.GenerateLevel(matrix,deepcopy(start), deepcopy(end),GRASS_SPRITE_INDEX)
         self.matrix = matrix
 
-    def GenerateLevel(self,matrix,wanderer,seeker):
+    def GenerateLevel(self,matrix,wanderer,seeker,GRASS_SPRITE_INDEX):
         createdPath = []
 
         while seeker not in createdPath:
             
-            matrix[ wanderer[0] ][ wanderer[1] ] = 11;
-            matrix[ seeker[0] ][ seeker[1] ] = 11;
+            matrix[ wanderer[0] ][ wanderer[1] ] = GRASS_SPRITE_INDEX;
+            matrix[ seeker[0] ][ seeker[1] ] = GRASS_SPRITE_INDEX;
 
             createdPath.append( wanderer )
             createdPath.append( seeker )

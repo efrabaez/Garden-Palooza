@@ -10,7 +10,8 @@ WATER_SPRITE_INDEX = 2717
 
 
 #up,down,left,right,upperCornerLeft, upperCornerRight, lowerCornerRight, lowerCornerLeft
-GRASS_SPRITE_MAP = [2361, 2479, 2419, 2421, 2480, 2478, 2362, 2360]
+#edge cases sprites:  upperCornerLeft, upperCornerRight, lowerCornerRight, lowerCornerLeft
+GRASS_SPRITE_MAP = [2361, 2479, 2419, 2421, 2480, 2478, 2362, 2360, 2422, 2423,2482,2481]
 
 #up,down,left,right,upperCornerLeft, upperCornerRight, lowerCornerRight, lowerCornerLeft
 #edge cases sprites:  upperCornerLeft, upperCornerRight, lowerCornerRight, lowerCornerLeft

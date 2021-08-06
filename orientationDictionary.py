@@ -97,38 +97,6 @@ class OrientationDictionary:
          [lowerCornerLeft, spriteIndexes[6]], [lowerCornerRight, spriteIndexes[7]]]
 
         leftUpperCorner = [
-                    [0,1,0],
-                    [1,1,0],
-                    [0,0,0]
-            ]
-
-        rightUpperCorner = [
-                [0,1,0],
-                [0,1,1],
-                [0,0,0]
-            ]
-
-        rightLowerCorner = [
-                [0,0,0],
-                [0,1,1],
-                [0,1,0]
-            ]
-
-
-        leftLowerCorner = [
-                [0,0,0],
-                [1,1,0],
-                [0,1,0]
-            ]
-
-        self.cornerDict = [
-            [leftUpperCorner,spriteIndexes[-4]],
-            [rightUpperCorner,spriteIndexes[-3]],
-            [rightLowerCorner,spriteIndexes[-2]],
-            [leftLowerCorner,spriteIndexes[-1]]
-        ]
-
-        leftUpperCorner = [
                     [0,0,0],
                     [0,1,0],
                     [0,0,1]
@@ -153,7 +121,7 @@ class OrientationDictionary:
                 [0,0,0]
             ]
 
-        self.waterDict = [
+        self.cornerDict = [
             [leftUpperCorner,spriteIndexes[-4]],
             [rightUpperCorner,spriteIndexes[-3]],
             [rightLowerCorner,spriteIndexes[-2]],

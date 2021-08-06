@@ -14,12 +14,12 @@ class MainScene extends Phaser.Scene
 
     preload ()
     {
-      this.load.image("gardenTile","assets/free.png");
+      this.load.image("gardenTile","assets/global.png");
     }
 
     create ()
     {
-      
+
       let map = this.make.tilemap({ data: this.level, tileWidth: 16, tileHeight: 16 });
       let tiles = map.addTilesetImage('gardenTile');
       let layer = map.createLayer(0, tiles, 0, 0).setInteractive();
@@ -27,6 +27,7 @@ class MainScene extends Phaser.Scene
 
       layer.on('pointerdown', function (pointer ) {
            
+        let display = document.getElementById("hola")
         let xP = Math.floor(pointer.downX);
         let yP = Math.floor(pointer.downY);
         layer.getTileAtWorldXY(xP,yP).index = 24;
@@ -38,8 +39,8 @@ class MainScene extends Phaser.Scene
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: 800,
-  height: 600,
+  width: 816,
+  height: 624,
   scene: MainScene
 };
 

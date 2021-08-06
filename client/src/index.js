@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import MainScene from './JS/phaserJS/mainScene';
 import reportWebVitals from './reportWebVitals';
+import socket from './JS/multiplayer'
 
 ReactDOM.render(
   <React.StrictMode>

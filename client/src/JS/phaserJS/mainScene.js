@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import matrix from "../matrixInfo"
-
-
+import socket from '../multiplayer'
 
 class MainScene extends Phaser.Scene
 {
@@ -9,12 +8,20 @@ class MainScene extends Phaser.Scene
     {
         super("App");
         this.updateMap = false;
-        this.level = matrix;
+        //this.level = matrix;
+        let emitter = new Phaser.Events.EventEmitter();
+
+        socket.once('levelTransfer', function(level) {
+            emitter.emit('levelLoad', level);
+        });
     }
 
     preload ()
     {
       this.load.image("gardenTile","assets/global.png");
+      this.load.once("levelLoad", function(level){
+        this.level = level
+      })
     }
 
     create ()

@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-import matrix from "../matrixInfo"
-import socket from '../multiplayer'
 
 class MainScene extends Phaser.Scene
 {
@@ -8,7 +6,6 @@ class MainScene extends Phaser.Scene
     {
       super("App");
       this.updateMap = false;
-      //this.level = matrix;
     }
 
     init (data)

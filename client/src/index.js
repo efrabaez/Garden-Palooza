@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import MainScene from './JS/phaserJS/mainScene';
+//import MainScene from './JS/phaserJS/mainScene';
 import reportWebVitals from './reportWebVitals';
 import socket from './JS/multiplayer'
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
+  <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

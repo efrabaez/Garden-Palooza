@@ -80,6 +80,10 @@ Start the server
 uwsgi --http :5000 --gevent 1000 --http-websockets --master --wsgi-file app.py --callable app --py-autoreload 1
 
 ```
+#### React App
+
+Start React development server with `npm run start`
+
 ### Docker
 
 For development, run `docker-compose -f docker-compose.yml -f docker-compose-dev.yml up`

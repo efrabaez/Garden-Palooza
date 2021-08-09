@@ -8,8 +8,6 @@ services:
         restart: unless-stopped
         env_file: 
             - .env
-        volumes:
-            - ./client:/app
     api:
         volumes:
             - ./api/app:/garden_palooza_be/app

@@ -53,9 +53,8 @@ export const Content = styled.div`
   }
 `;
 
-export const Window = styled.form`
-  background: #010101;
-  max-width: 400px;
+export const Window = styled.div`
+  max-width: 600px;
   height: auto;
   width: 100%;
   z-index: 1;
@@ -69,3 +68,8 @@ export const Window = styled.form`
     padding: 32px 32px;
   }
 `;
+
+export const Games = styled.div`
+ display: grid;
+  margin: 0 auto;
+`

@@ -13,7 +13,7 @@ import {
 
 const config = {
   type: Phaser.AUTO,
-  parent: 'phaser-example',
+  parent: 'phaser',
   width: 600,
   height: 400,
   scene: [ LoadScene, MainScene ]
@@ -28,8 +28,7 @@ const GuestPage = () => {
         <Wrap>
           <Icon to="/">GP</Icon>
           <Content>
-            <Window>
-             {game}
+            <Window id="phaser">
             </Window>
           </Content>
         </Wrap>

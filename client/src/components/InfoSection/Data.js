@@ -1,0 +1,35 @@
+export const homeObjOne = {
+  id: "about",
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
+  topLine: "Powered by JavaScript",
+  headline: "Game Plants",
+  description: "Easy to play in any browser, just use our easy guest login...",
+  buttonLabel: "Get Started",
+  imgStart: false,
+ video: require("../../videos/video.mp4").default,
+  alt: "algo",
+  dark: true,
+  primary: true,
+  darkText: false,
+};
+
+export const homeObjTwo = {
+  id: "discover",
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: "Unlimited Access",
+  headline: "Login and play anytime",
+  description:
+    "All you need is an internet connection and a phone or computer.",
+  buttonLabel: "Learn More",
+  imgStart: true,
+  // img: require("../../images/algo.png"),
+  video: require("../../videos/video.mp4").default,
+  alt: "algo",
+  dark: false,
+  primary: false,
+  darkText: true,
+};

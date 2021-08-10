@@ -80,13 +80,15 @@ export const HeroH1 = styled.h1`
   }
 `;
 
+
 export const HeroP = styled.p`
   font-family: "Quicksand", sans-serif;
   margin-top: 24px;
   color: #fff;
   font-size: 24px;
   text-align: center;
-  max-width: 600px;
+  max-width: 600px
+}
 
   @media screen and (max-width: 768px) {
     font-size: 24px;
@@ -102,6 +104,20 @@ export const HeroBtnWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Quicksand", sans-serif;
+  animation: blinker 1.8s linear infinite;
+
+  a:link {
+  text-decoration: none;
+  background: #0ab56d;
+  border-radius: 25px;
+  height; 20px;
+  padding: 10px
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 `;
 
 export const ArrowForward = styled(MdArrowForward)`

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../ButtonElements";
+import { Link } from "react-router-dom";
 
 import Video from "../../videos/video.mp4";
 import {
@@ -31,8 +31,8 @@ function HeroSection() {
           Discover, collect and grow lovely plants and expand your garden!
         </HeroP>
         <HeroBtnWrapper>
-          <Button
-            to="signup"
+          <Link
+            to="guest"
             smooth={true}
             duration={500}
             spy={true}
@@ -44,7 +44,7 @@ function HeroSection() {
             onMouseLeave={onHover}
           >
             Guest Login {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
+          </Link>
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>

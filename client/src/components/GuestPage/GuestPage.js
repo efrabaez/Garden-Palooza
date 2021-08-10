@@ -17,7 +17,7 @@ export const Container = styled.div`
   );
 `;
 
-export const FormWrap = styled.div`
+export const Wrap = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ export const Icon = styled(Link)`
   }
 `;
 
-export const FormContent = styled.div`
+export const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@ export const FormContent = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Window = styled.form`
   background: #010101;
   max-width: 400px;
   height: auto;
@@ -68,40 +68,4 @@ export const Form = styled.form`
   @media screen and (max-width: 400px) {
     padding: 32px 32px;
   }
-`;
-
-export const FormH1 = styled.h1`
-  margin-bottom: 40px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-`;
-
-export const FormLabel = styled.label`
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: #fff;
-`;
-export const FormInput = styled.input`
-  padding: 16px 16px;
-  margin-bottom: 32px;
-  border: none;
-  border-radius: 4px;
-`;
-
-export const FormButton = styled.button`
-  background: #01bf71;
-  padding: 16px 0;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-`;
-export const Text = styled.span`
-  text-align: center;
-  margin-top: 24px;
-  color: #fff;
-  font-size: 14px;
 `;

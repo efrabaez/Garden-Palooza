@@ -1,35 +1,38 @@
 import React from "react";
+import LoadScene from './JS/phaserJS/loadScene';
+import MainScene from './JS/phaserJS/mainScene';
+import Phaser from 'phaser';
 import {
   Container,
-  FormWrap,
+  Wrap,
   Icon,
-  FormContent,
-  Form,
-  FormH1,
-  FormLabel,
-  FormInput,
-  FormButton,
-  Text,
+  Content,
+  Window,
 } from "./GuestPage";
+
+
+const config = {
+  type: Phaser.AUTO,
+  parent: 'phaser-example',
+  width: 600,
+  height: 400,
+  scene: [ LoadScene, MainScene ]
+};
+
+const game = new Phaser.Game(config);
 
 const GuestPage = () => {
   return (
     <>
       <Container>
-        <FormWrap>
+        <Wrap>
           <Icon to="/">GP</Icon>
-          <FormContent>
-            <Form action="#">
-              <FormH1>Sign in to your account</FormH1>
-              <FormLabel htmlFor="for">User Name</FormLabel>
-              <FormInput type="email" required />
-              <FormLabel htmlFor="for">Password</FormLabel>
-              <FormInput type="password" required />
-              <FormButton type="submit">Continue</FormButton>
-              <Text>Forgot password</Text>
-            </Form>
-          </FormContent>
-        </FormWrap>
+          <Content>
+            <Window>
+             {game}
+            </Window>
+          </Content>
+        </Wrap>
       </Container>
     </>
   );

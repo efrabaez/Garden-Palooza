@@ -2,21 +2,21 @@ import React from "react";
 import LoadScene from './JS/phaserJS/loadScene';
 import MainScene from './JS/phaserJS/mainScene';
 import Phaser from 'phaser';
-import Game from './Game'
 import {
   Container,
   Wrap,
   Icon,
   Content,
   Window,
-  Games,
+  Game
 } from "./GuestPage";
+
 
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser',
-  width: 400,
-  height: 400,
+  width: 800,
+  height: 600,
   scene: [ LoadScene, MainScene ]
 };
 
@@ -29,9 +29,8 @@ const GuestPage = () => {
         <Wrap>
           <Icon to="/">GP</Icon>
           <Content>
-            <Window>
-              <Games id="phaser">
-              </Games>
+            <Window id="phaser">
+              <Game id="phaser"></Game>
             </Window>
           </Content>
         </Wrap>

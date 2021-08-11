@@ -54,22 +54,20 @@ export const Content = styled.div`
 `;
 
 export const Window = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   height: auto;
   width: 100%;
   z-index: 1;
   display: grid;
   margin: 0 auto;
-  padding: 80px 32px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+
 
   @media screen and (max-width: 400px) {
     padding: 32px 32px;
   }
 `;
 
-export const Games = styled.div`
+export const Game = styled.div`
  display: grid;
   margin: 0 auto;
 `

@@ -1,26 +1,17 @@
 version: "3"
-services: 
-    api:
-        container_name: api
-        build: ./api
-        ports: 
-            - 80:80
-        restart: unless-stopped
-        env_file: 
-            - .env
-        depends_on:
-            - db
-    
+services:    
     db:
         container_name: db
         image: postgres
         restart: unless-stopped
         env_file: 
             - .env
+        networks:
+            - garden
 
-    socket:
-        container_name: socket
-        build: ./socket
+    server:
+        container_name: server
+        build: ./server
         ports:
             - 5000:5000
         restart: unless-stopped
@@ -28,3 +19,9 @@ services:
             - .env
         depends_on:
             - db
+        networks:
+            - garden
+
+networks:
+  garden:
+    driver: bridge

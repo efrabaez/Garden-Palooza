@@ -8,14 +8,15 @@ import {
   Icon,
   Content,
   Window,
+  Game
 } from "./GuestPage";
 
 
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser',
-  width: 600,
-  height: 400,
+  width: 800,
+  height: 600,
   scene: [ LoadScene, MainScene ]
 };
 
@@ -29,6 +30,7 @@ const GuestPage = () => {
           <Icon to="/">GP</Icon>
           <Content>
             <Window id="phaser">
+              <Game id="phaser"></Game>
             </Window>
           </Content>
         </Wrap>

@@ -1,7 +1,7 @@
 from flask import Blueprint
 from . import socketio
 from flask_socketio import emit
-from src.level.levelGenerator import LevelGenerator
+from src.game.levelGenerator.levelGenerator import LevelGenerator
 
 bp = Blueprint("multiplayer", __name__)
 

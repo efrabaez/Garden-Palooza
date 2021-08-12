@@ -10,7 +10,6 @@ const config = {
     height: 624,
     scene: [Garden,TileUI],
 };
-  
-const game = new Phaser.Game(config);
 
-export default game;
+
+export default config;

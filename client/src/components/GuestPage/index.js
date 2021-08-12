@@ -1,5 +1,6 @@
 import React from "react";
-import game from "./JS/phaserJS/game"
+import Phaser from "phaser"
+import config from "./JS/phaserJS/game"
 import {
   Container,
   Wrap,
@@ -8,6 +9,8 @@ import {
   Window,
   Game
 } from "./GuestPage";
+
+let game = new Phaser.Game(config);
 
 const GuestPage = () => {
   return (

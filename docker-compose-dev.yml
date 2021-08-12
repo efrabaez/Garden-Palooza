@@ -10,9 +10,6 @@ services:
             - .env
         volumes:
             - ./client/src:/app/src
-    api:
+    server:
         volumes:
-            - ./api/app:/garden_palooza_be/app
-    socket:
-        volumes:
-            - ./socket/src:/socket-server/src
+            - ./server/src:/server/src

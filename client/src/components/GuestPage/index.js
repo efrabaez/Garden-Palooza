@@ -1,7 +1,5 @@
 import React from "react";
-import LoadScene from './JS/phaserJS/loadScene';
-import MainScene from './JS/phaserJS/mainScene';
-import Phaser from 'phaser';
+import game from "./JS/phaserJS/game"
 import {
   Container,
   Wrap,
@@ -10,17 +8,6 @@ import {
   Window,
   Game
 } from "./GuestPage";
-
-
-const config = {
-  type: Phaser.AUTO,
-  parent: 'phaser',
-  width: 800,
-  height: 600,
-  scene: [ LoadScene, MainScene ]
-};
-
-const game = new Phaser.Game(config);
 
 const GuestPage = () => {
   return (

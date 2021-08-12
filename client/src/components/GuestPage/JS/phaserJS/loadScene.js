@@ -8,9 +8,6 @@ class LoadScene extends Phaser.Scene
       super("Load");
     }
 
-    preload ()
-    {}
-
     create ()
     {
       var self = this

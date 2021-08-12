@@ -5,12 +5,10 @@ import Phaser from 'phaser';
 import {
   Container,
   Wrap,
-  Icon,
-  Content,
   Window,
-  Game
+  Chat
 } from "./GuestPage";
-
+import './Guest.css'
 
 const config = {
   type: Phaser.AUTO,
@@ -26,15 +24,13 @@ const GuestPage = () => {
   return (
     <>
       <Container>
-        <Wrap>
-          <Icon to="/">GP</Icon>
-          <Content>
-            <Window id="phaser">
-              <Game id="phaser"></Game>
-            </Window>
-          </Content>
+        <Wrap id="phaser">
+            <Window id="phaser"/>
         </Wrap>
       </Container>
+      <Chat>
+          <div>Chat Window Sample</div>
+        </Chat>
     </>
   );
 };

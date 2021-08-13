@@ -1,11 +1,11 @@
-from skeletonGenerator import SkeletonGenerator
-from grassDecorator import GrassDecorator
-from riverSkeletonGenerator import RiverSkeletonGenerator
-from riverDecorator import RiverDecorator
-from groundDecorator import GroundDecorator
-from waterExtraDecorator import WaterExtraDecorator
-from grassExtraDecorator import GrassExtraDecorator
-from groundExtraDecorator import GroundExtraDecorator
+from .skeletonGenerator import SkeletonGenerator
+from .grassDecorator import GrassDecorator
+from .riverSkeletonGenerator import RiverSkeletonGenerator
+from .riverDecorator import RiverDecorator
+from .groundDecorator import GroundDecorator
+from .waterExtraDecorator import WaterExtraDecorator
+from .grassExtraDecorator import GrassExtraDecorator
+from .groundExtraDecorator import GroundExtraDecorator
 from copy import deepcopy
 import json
 
@@ -49,4 +49,4 @@ def GenerateLevel():
     GrassExtraDecorator(secondLayer,GRASS_EXTRA_SPRITE_MAP, GRASS_EXTRA_SPRITE_MAP2, levelSkeleton.createdPath, GRASS_SPRITE_INDEX)
     GroundExtraDecorator(secondLayer, GROUND_EXTRA_SPRITE_MAP, levelSkeleton.ground, GROUND_SPRITE_MAP )
 
-    return json.dumps({"firstLayer": firstLayer, "secondLayer": secondLayer})
+    return {"firstLayer": firstLayer, "secondLayer": secondLayer}

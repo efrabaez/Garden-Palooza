@@ -1,4 +1,4 @@
-from src.level.orientationDictionary import OrientationDictionary 
+from .orientationDictionary import OrientationDictionary 
 from copy import deepcopy 
 
 class GrassDecorator:

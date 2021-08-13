@@ -7,6 +7,10 @@ class TileUI extends Phaser.Scene
         super({key: "TileUI"});
     }
 
+    init(data){
+      this.tileInfo = data;
+    }
+
     preload ()
     {
       this.load.image('button','assets/plantUIButton.png');
@@ -15,9 +19,24 @@ class TileUI extends Phaser.Scene
 
     create ()
     {
-      //here I get a json with the plant info
-      //this is an example of what would I get from the server
-      let jsonExample = {'tileFree': true,'needToWater':false,'needToDisinfect': false}
+      let groundSprites = [2363,2483,2484,2485]
+      let grassSprites = [2420,2186,2187, 2306,2307,2308,2309,2310]
+      let seeds = [ 2609, 2610, 2611];
+
+      let self = this;
+
+      let row = self.tileInfo.row;
+      let column = self.tileInfo.column;
+      let currentSprite = self.tileInfo.spriteIndex;
+
+      let tileFree = ( (groundSprites.includes(currentSprite)) || (grassSprites.includes(currentSprite)));
+      let needToWater = false;
+      let needToDisinfect = false;
+
+
+      
+      //if (this.tileInformation.index)
+      let tileStatus = {'tileFree': tileFree,'needToWater':needToWater,'needToDisinfect': needToDisinfect}
       this.add.image(430,200,'background');
       
       let plantSomethingButton = this.add.image(20,40,'button');
@@ -27,10 +46,18 @@ class TileUI extends Phaser.Scene
       let plantSomethingButtonText = this.add.text(70,85,"   Plant \n Something");
       plantSomethingButtonText.setFontSize(30);
 
-      if( !jsonExample['tileFree'] ){
+      if( !tileStatus['tileFree'] ){
         plantSomethingButton.visible = false;
         plantSomethingButtonText.visible = false;
       }
+      console.log(row,column,currentSprite)
+      plantSomethingButton.on('pointerup',() =>{
+        
+        self.game.level.secondLayer[row][column] = seeds[Math.floor(Math.random() * seeds.length)];
+        let level = self.game.level;
+        self.scene.stop('TileUI');
+        self.scene.start("Garden",{level});
+      });
 
       let waterButton = this.add.image(20,250,'button');
       waterButton.setScale(0.3,0.15);
@@ -39,7 +66,7 @@ class TileUI extends Phaser.Scene
       let waterButtonText = this.add.text(39,306,"Water the Plant");
       waterButtonText.setFontSize(30);
 
-      if( !jsonExample['needToWater'] ){
+      if( !tileStatus['needToWater'] ){
         waterButton.visible = false;
         waterButtonText.visible = false;
       }
@@ -51,7 +78,7 @@ class TileUI extends Phaser.Scene
       let removePlantText = this.add.text(545,90,"Remove Plant");
       removePlantText.setFontSize(30);
 
-      if( jsonExample['tileFree'] ){
+      if( tileStatus['tileFree'] ){
         removePlant.visible = false;
         removePlantText.visible = false;
       }
@@ -63,7 +90,7 @@ class TileUI extends Phaser.Scene
       let disinfectButtonText = this.add.text(515,306,"Disinfect Plant");
       disinfectButtonText.setFontSize(30);
 
-      if( !jsonExample['needToDisinfect'] ){
+      if( !tileStatus['needToDisinfect'] ){
         disinfectButton.visible = false;
         disinfectButtonText.visible = false;
       }
@@ -77,15 +104,12 @@ class TileUI extends Phaser.Scene
       returnButtonText.setFontSize(30);
       
       returnButton.on('pointerup', () =>{
-
-            this.scene.stop("TileUI");
-            this.scene.start("Garden");
-            
+          let level = self.game.level;
+          this.scene.stop("TileUI");
+          this.scene.start("Garden",{level});
        
       });
     }
 }
-
-
 
 export default TileUI;

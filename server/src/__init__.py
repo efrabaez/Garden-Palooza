@@ -54,6 +54,6 @@ def create_app(test_config=None):
 
     app.register_blueprint(multiplayer.bp)
 
-    socketio.init_app(app)
+    socketio.init_app(app, async_mode='gevent')
 
     return app

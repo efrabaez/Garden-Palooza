@@ -11,9 +11,10 @@ class LoadScene extends Phaser.Scene
     create ()
     {
       var self = this
-      socket.once('levelTransfer', function(level) {
-        console.log("level should now be" + level);
-        self.scene.start('App', { level: level });
+      socket.once('levelTransfer', function(levelJSON) {
+        let levelData = JSON.parse(levelJSON);
+        console.log(levelData);
+        self.scene.start('Garden', levelData);
       });
     }
 }

@@ -1,14 +1,12 @@
 from flask import Blueprint
 from . import socketio
 from flask_socketio import emit
-from src.game.levelGenerator.levelGenerator import LevelGenerator
+from src.game.levelGenerator.levelGenerator import GenerateLevel
 
 bp = Blueprint("multiplayer", __name__)
 
-
-levelInformation = GenerateLevelMatrix()
+levelInformation = GenerateLevel()
 print("Level generated!")
-
 
 @socketio.on('connect')
 def send_level():

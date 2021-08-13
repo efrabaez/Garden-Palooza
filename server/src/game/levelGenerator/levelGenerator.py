@@ -1,11 +1,11 @@
-from skeletonGenerator import SkeletonGenerator
-from grassDecorator import GrassDecorator
-from riverSkeletonGenerator import RiverSkeletonGenerator
-from riverDecorator import RiverDecorator
-from groundDecorator import GroundDecorator
-from waterExtraDecorator import WaterExtraDecorator
-from grassExtraDecorator import GrassExtraDecorator
-from groundExtraDecorator import GroundExtraDecorator
+from src.game.levelGenerator.skeletonGenerator import SkeletonGenerator
+from src.game.levelGenerator.grassDecorator import GrassDecorator
+from src.game.levelGenerator.riverSkeletonGenerator import RiverSkeletonGenerator
+from src.game.levelGenerator.riverDecorator import RiverDecorator
+from src.game.levelGenerator.groundDecorator import GroundDecorator
+from src.game.levelGenerator.waterExtraDecorator import WaterExtraDecorator
+from src.game.levelGenerator.grassExtraDecorator import GrassExtraDecorator
+from src.game.levelGenerator.groundExtraDecorator import GroundExtraDecorator
 from copy import deepcopy
 import json
 

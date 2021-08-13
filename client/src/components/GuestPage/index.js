@@ -1,6 +1,6 @@
 import React from "react";
-import Phaser from "phaser"
-import config from "./JS/phaserJS/game"
+import Phaser from "phaser";
+import config from "./JS/phaserJS/game";
 import {
   Container,
   Wrap,
@@ -19,7 +19,7 @@ const GuestPage = () => {
         <Wrap>
           <Icon to="/">GP</Icon>
           <Content>
-            <Window id="phaser">
+            <Window>
               <Game id="phaser"></Game>
             </Window>
           </Content>

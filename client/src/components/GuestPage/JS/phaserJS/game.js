@@ -8,7 +8,7 @@ const config = {
     parent: 'phaser',
     width: 816,
     height: 624,
-    scene: [Garden,TileUI],
+    scene: [LoadScene,Garden,TileUI],
 };
 
 

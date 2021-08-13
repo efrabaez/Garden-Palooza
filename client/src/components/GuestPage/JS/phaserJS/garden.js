@@ -11,6 +11,7 @@ class Garden extends Phaser.Scene
     {
       this.firstLayer = data.firstLayer;
       this.secondLayer = data.secondLayer;
+      console.log(this.firstLayer, this.secondLayer)
     }
 
     preload ()

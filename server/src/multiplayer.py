@@ -5,7 +5,10 @@ from src.game.levelGenerator.levelGenerator import LevelGenerator
 
 bp = Blueprint("multiplayer", __name__)
 
+
 levelInformation = GenerateLevelMatrix()
+print("Level generated!")
+
 
 @socketio.on('connect')
 def send_level():

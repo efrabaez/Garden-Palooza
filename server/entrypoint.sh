@@ -1,2 +1,2 @@
 #!/bin/sh
-uwsgi --http :5000 --gevent 1000 --http-websockets --master --wsgi-file app.py --callable app --py-autoreload 1
+gunicorn --worker-class geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w 1 app:app --bind=0.0.0.0:5000 --reload

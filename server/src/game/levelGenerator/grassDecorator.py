@@ -1,4 +1,4 @@
-from src.level.orientationDictionary import OrientationDictionary 
+from src.game.levelGenerator.orientationDictionary import OrientationDictionary 
 from copy import deepcopy 
 
 class GrassDecorator:

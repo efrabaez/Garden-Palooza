@@ -4,20 +4,17 @@ class MainScene extends Phaser.Scene
 {
     constructor ()
     {
-      debugger
       super("App");
       this.updateMap = false;
     }
 
     init (data)
     {
-      debugger
       this.level = data.level
     }
 
     preload ()
     {
-      debugger
       this.load.image("gardenTile","/assets/global.png");
     }
 

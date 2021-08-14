@@ -51,26 +51,17 @@
 
 
 import React from "react";
-import LoadScene from './JS/phaserJS/loadScene';
-import MainScene from './JS/phaserJS/mainScene';
-import Phaser from 'phaser';
+import Phaser from "phaser";
+import config from "./JS/phaserJS/game";
 import {
   Container,
   Wrap,
   Window,
   Chat
 } from "./GuestPage";
-import './Guest.css'
 
-const config = {
-  type: Phaser.AUTO,
-  parent: 'phaser',
-  width: 800,
-  height: 600,
-  scene: [ LoadScene, MainScene ]
-};
+let game = new Phaser.Game(config);
 
-const game = new Phaser.Game(config);
 
 const GuestPage = () => {
 
@@ -82,7 +73,7 @@ const GuestPage = () => {
   return (
     <>
       <Container>
-        <Wrap id="phaser">
+        <Wrap>
             <Window id="phaser"/>
         </Wrap>
       </Container>

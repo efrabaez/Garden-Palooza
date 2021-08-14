@@ -4,18 +4,21 @@ class MainScene extends Phaser.Scene
 {
     constructor ()
     {
+      debugger
       super("App");
       this.updateMap = false;
     }
 
     init (data)
     {
+      debugger
       this.level = data.level
     }
 
     preload ()
     {
-      this.load.image("gardenTile","assets/global.png");
+      debugger
+      this.load.image("gardenTile","/assets/global.png");
     }
 
     create ()
@@ -23,7 +26,8 @@ class MainScene extends Phaser.Scene
 
       let map = this.make.tilemap({ data: this.level, tileWidth: 16, tileHeight: 16 });
       let tiles = map.addTilesetImage('gardenTile');
-      let layer = map.createLayer(0, tiles, 0, 0).setInteractive();
+      let layer = map.createLayer(0, tiles, 0, 0)
+      layer.setInteractive();
       let info = this.level;
 
       layer.on('pointerdown', function (pointer ) {

@@ -9,7 +9,6 @@ levelInformation = GenerateLevel()
 
 print("Level generated!")
 
-
 @socketio.on('connect')
 def send_level():
     emit('levelTransfer', levelInformation)

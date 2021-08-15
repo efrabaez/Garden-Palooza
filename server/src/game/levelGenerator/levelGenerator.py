@@ -7,7 +7,7 @@ from .waterExtraDecorator import WaterExtraDecorator
 from .grassExtraDecorator import GrassExtraDecorator
 from .groundExtraDecorator import GroundExtraDecorator
 from copy import deepcopy
-import json
+import random
 
 def GenerateLevel():
     GROUND_SPRITE_INDEX = 2363
@@ -49,4 +49,6 @@ def GenerateLevel():
     GrassExtraDecorator(secondLayer,GRASS_EXTRA_SPRITE_MAP, GRASS_EXTRA_SPRITE_MAP2, levelSkeleton.createdPath, GRASS_SPRITE_INDEX)
     GroundExtraDecorator(secondLayer, GROUND_EXTRA_SPRITE_MAP, levelSkeleton.ground, GROUND_SPRITE_MAP )
 
-    return {"firstLayer": firstLayer, "secondLayer": secondLayer}
+    spawnPoint = levelSkeleton.createdPath[random.randint(0,len(levelSkeleton.createdPath) - 1)]
+
+    return {"firstLayer": firstLayer, "secondLayer": secondLayer, "playerRow": spawnPoint[0] * 16, "playerColumn": spawnPoint[1] * 16}

@@ -4,6 +4,7 @@ class Garden extends Phaser.Scene
 {
     constructor ()
     {
+      debugger
       super({key: "Garden"});
     }
 
@@ -16,12 +17,13 @@ class Garden extends Phaser.Scene
 
     preload ()
     {
+      debugger
       this.load.image("gardenTile","assets/global.png");
     }
 
     create ()
     {
-
+      debugger
       let map = this.make.tilemap({ data: this.firstLayer, tileWidth: 16, tileHeight: 16 });
       let map2 = this.make.tilemap({ data: this.secondLayer, tileWidth: 16, tileHeight: 16 })
       let tiles = map.addTilesetImage('gardenTile');

@@ -4,17 +4,20 @@ class TileUI extends Phaser.Scene
 {
     constructor ()
     {
+      debugger
         super({key: "TileUI"});
     }
 
     preload ()
     {
+      debugger
       this.load.image('button','assets/plantUIButton.png');
       this.load.image('background','assets/plantUIBackground.png');
     }
 
     create ()
     {
+      debugger
       //here I get a json with the plant info
       //this is an example of what would I get from the server
       let jsonExample = {'tileFree': true,'needToWater':false,'needToDisinfect': false}

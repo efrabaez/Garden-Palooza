@@ -1,16 +1,19 @@
 from flask import Blueprint
 from . import socketio
 from flask_socketio import emit
-from src.game.levelGenerator.levelGenerator import GenerateLevel
-
+from .game.levelGenerator.levelGenerator import GenerateLevel
+from src.models import db, GardenModel, UserModel
 bp = Blueprint("multiplayer", __name__)
 
 levelInformation = GenerateLevel()
+
 print("Level generated!")
 
-@socketio.on('connect')
-def send_level():
-    emit('levelTransfer', levelInformation)
+@socketio.on('gameLoaded')
+def sendLevel(signal):
+    if signal == 'ok':
+        print("sending level to client")
+        return levelInformation
 
 def messageReceived(methods=['GET', 'POST']):
     print('we got a message!')

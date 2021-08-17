@@ -9,9 +9,11 @@ levelInformation = GenerateLevel()
 
 print("Level generated!")
 
-@socketio.on('connect')
-def send_level():
-    emit('levelTransfer', levelInformation)
+@socketio.on('gameLoaded')
+def sendLevel(signal):
+    if signal == 'ok':
+        print("sending level to client")
+        return levelInformation
 
 def messageReceived(methods=['GET', 'POST']):
     print('we got a message!')

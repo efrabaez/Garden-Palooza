@@ -15,10 +15,6 @@ def sendLevel(signal):
         print("sending level to client")
         return levelInformation
 
-def messageReceived(methods=['GET', 'POST']):
-    print('we got a message!')
-
-@socketio.on('event')
-def handle_event(json, methods=['GET', 'POST']):
-    print('received an event: '+ str(json))
-    socketio.emit('response', json, callback=messageReceived)
+@socketio.on('chat')
+def chat_broadcast(json, methods=['GET', 'POST']):
+    emit('response', json, broadcast=True, include_self=False)
